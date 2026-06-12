@@ -37,8 +37,10 @@
         const username = "thegamemastertg304";  // Replace with your real username
         const repo = "thegamemastertg304.github.io";      // Replace with your real repo name
 
-        const apiURL = `https://github.com{username}/${repo}/contents/`;
-        const cdnBaseURL = `https://${username}.github.io/${repo === `${username}.github.io` ? '' : repo + '/'}`;
+        // STABLE STATIC CONFIGURATION
+        const apiURL = "https://github.com"; 
+        const cdnBaseURL = "https://thegamemastertg304.github.io/thegamemastertg304.github.io/";
+
 
         // The 'async' keyword here ensures the 'await' commands inside work perfectly
         async function fetchFiles() {
