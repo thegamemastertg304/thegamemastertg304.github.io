@@ -37,19 +37,13 @@
         const hostname = window.location.hostname;
         const pathSegments = window.location.pathname.split('/').filter(Boolean);
         
-        let username = hostname.split('.')[0];
-        let repo = hostname.includes('.github.io') && pathSegments.length > 0 ? pathSegments[0] : hostname;
-        
-        // Adjust mappings if using a primary username.github.io repository
-        if (hostname === `${username}.github.io` && pathSegments.length === 0) {
-            repo = hostname;
-        }
+        // EXPLICIT HARDCODED CONFIGURATION
+        const username = "thegamemastertg304";  // Replace with your actual username
+        const repo = "thegamemastertg404.github.io";      // Replace with your actual repository name
 
         const apiURL = `https://github.com{username}/${repo}/contents/`;
         const cdnBaseURL = `https://${username}.github.io/${repo === `${username}.github.io` ? '' : repo + '/'}`;
 
-        async function fetchFiles() {
-            try {
                 const response = await fetch(apiURL);
                 if (!response.ok) throw new Error("Failed to fetch repository files.");
                 const files = await response.json();
